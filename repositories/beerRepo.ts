@@ -10,7 +10,7 @@ export type Beer = {
 class BeerRepo {
     create(beer: Beer) {
         return client.queryArray
-            `INSERT INTO beers (name, brand,is_premium,registration_date) VALUES (${beer.name}, ${beer.brand}, ${beer.is_premium},${beer.registration_date})`;
+            `INSERT INTO beers (name, brand,is_premium,registration_date) VALUES (${beer.name}, ${beer.brand}, ${beer.is_premium},${beer.registration_date}) RETURNING id`;
     }
 
     selectAll() {

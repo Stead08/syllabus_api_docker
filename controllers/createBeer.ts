@@ -20,5 +20,5 @@ export default async ({ request, response } : Context) => {
     }
     const beerId = await createBeer({ name, brand, is_premium});
 
-    response.body = {msg: "Beer created"};
+    response.body = {msg: "Beer created", beerId};
 };
