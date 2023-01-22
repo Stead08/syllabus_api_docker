@@ -1,10 +1,10 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
-import getBeers from "./controllers/getBeers.ts";
-import getBeerDetails from "./controllers/getBeerDetails.ts"
-import getBeerList from "./controllers/getBeerList.ts"
-import createBeer from "./controllers/createBeer.ts";
-import updateBeer from "./controllers/updateBeer.ts"
-import deleteBeer from "./controllers/deleteBeer.ts";
+import getBeers from "./controllers/getSyllabusListByCategory.ts";
+import getBeerDetails from "./controllers/getSyllabusDetails.ts"
+import getBeerList from "./controllers/getSyllabusName.ts"
+import createBeer from "./controllers/createSyllabus.ts";
+import updateBeer from "./controllers/updateSyllabus.ts"
+import deleteBeer from "./controllers/deleteSyllabus.ts";
 
 const router = new Router();
 

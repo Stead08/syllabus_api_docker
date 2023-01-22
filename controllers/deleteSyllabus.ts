@@ -1,4 +1,4 @@
-import { deleteBeer, getBeer } from "../services/beerService.ts";
+import { deleteBeer, getBeer } from "../services/syllabusService.ts";
 import { Context } from "https://deno.land/x/oak/mod.ts"
 
 interface ContextWithParams extends Context {

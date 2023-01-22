@@ -8,7 +8,7 @@ class Database {
     async connect() {
         this.client = new Client({
             user: "localuser",
-            database: "logrocket_deno",
+            database: "Syllabus",
             hostname: "localhost",
             password: "password",
             port: 5432

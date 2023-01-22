@@ -1,4 +1,4 @@
-import { createBeer } from "../services/beerService.ts";
+import { createBeer } from "../services/syllabusService.ts";
 import {Context} from "https://deno.land/x/oak/mod.ts";
 
 export default async ({ request, response } : Context) => {
