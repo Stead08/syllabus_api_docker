@@ -21,6 +21,10 @@ class BeerRepo {
         return client.queryArray`SELECT * FROM beers WHERE id = ${id}`;
     }
 
+    selectByName(name: string) {
+        return client.queryArray`SELECT * FROM beers WHERE name=${name}`
+    }
+
     update(id: string, beer: Beer) {
         const latestBeer = this.selectById(id);
 

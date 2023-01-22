@@ -30,6 +30,11 @@ export const getBeer = async (beerId: string) => {
     return generateObjectFromQueryResult(beer)[0];
 };
 
+export const getBeersByName = async(name: string) => {
+    const beers = await beerRepo.selectByName(name);
+
+    return generateObjectFromQueryResult(beers)
+}
 export const createBeer = async (beerData: { is_premium: boolean; name: string; brand: string }) => {
     const newBeer = {
         name: String(beerData.name),
