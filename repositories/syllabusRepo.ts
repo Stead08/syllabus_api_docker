@@ -49,25 +49,26 @@ class SyllabusRepo {
     }
 
     selectByCategory(category: string) {
-        return client.queryArray`SELECT * FROM beers ORDER BY id`;
+        return client.queryArray`SELECT * FROM SyllabusList WHERE カテゴリ = ${category}`;
     }
 
-    selectById(id: string) {
-        return client.queryArray`SELECT * FROM beers WHERE id = ${id}`;
+    selectBySyllabusDetailId(id: string) {
+        return client.queryArray`SELECT * FROM SyllabusDetails WHERE id = ${id}`;
     }
 
     selectByName(name: string) {
-        return client.queryArray`SELECT * FROM beers WHERE name=${name}`
+        return client.queryArray`SELECT * FROM SyllabusList WHERE name=${name}`
     }
 
     update(id: string, syllabusDetail: syllabusDetail) {
-        const latestBeer = this.selectById(id);
+        const latestBeer = this.selectBySyllabusDetailId(id);
 
         return client.queryArray`UPDATE beers SET name = ${beer.name !== undefined ? beer.name : latestBeer.name}, brand = ${beer.brand !== undefined ? beer.brand : latestBeer.brand}, is_premium = ${beer.is_premium !== undefined ? beer.is_premium : latestBeer.is_premium} WHERE id = ${id}`;
     }
 
+
     delete(id: string) {
-        return client.queryArray`DELETE FROM beers WHERE id = ${id}`;
+        return client.queryArray`DELETE FROM SyllabusList WHERE id = ${id}`;
     }
 }
 

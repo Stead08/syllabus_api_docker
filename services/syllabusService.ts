@@ -1,4 +1,4 @@
-import syllabusRepo, { Beer } from "../repositories/syllabusRepo.ts";
+import syllabusRepo, {syllabusDetail } from "../repositories/syllabusRepo.ts";
 import { QueryResult } from "https://deno.land/x/postgres@v0.14.0/query/query.ts";
 
 type GenericObject = { [key: string]: any };
