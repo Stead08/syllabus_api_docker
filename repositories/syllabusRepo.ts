@@ -43,21 +43,21 @@ export type SyllabusList =  {
 }
 
 class SyllabusRepo {
-    create(syllabus: syllabusDetail) {
-        return client.queryArray
-            `INSERT INTO public."SyllabusDetails" ("科目名", "講義名", "クラス", "担当教員", "学年", "開講学期", "開講時期", "曜日_時限", "科目種別", "科目区分", "単位区分", "単位数", "準備事項", "備考", "特殊プログラム", "授業方法", "講義情報", registration_date) VALUES (${syllabus.科目名}, ${syllabus.講義名}, ${syllabus.クラス}, ${syllabus.担当教員}, ${syllabus.学年}, ${syllabus.開講学期}, ${syllabus.開講時期}, ${syllabus.曜日_時限}, ${syllabus.科目種別}, ${syllabus.科目区分}, ${syllabus.単位区分}, ${syllabus.単位数}, ${syllabus.準備事項}, ${syllabus.備考}, ${syllabus.特殊プログラム},${syllabus.授業方法} , ${syllabus.講義情報}, ${syllabus.registration_date});`;
-    }
-
+    // create(syllabus: syllabusDetail) {
+    //     return client.queryArray
+    //         `INSERT INTO "SyllabusDetails" ("科目名", "講義名", "クラス", "担当教員", "学年", "開講学期", "開講時期", "曜日_時限", "科目種別", "科目区分", "単位区分", "単位数", "準備事項", "備考", "特殊プログラム", "授業方法", "講義情報", registration_date) VALUES (${syllabus.科目名}, ${syllabus.講義名}, ${syllabus.クラス}, ${syllabus.担当教員}, ${syllabus.学年}, ${syllabus.開講学期}, ${syllabus.開講時期}, ${syllabus.曜日_時限}, ${syllabus.科目種別}, ${syllabus.科目区分}, ${syllabus.単位区分}, ${syllabus.単位数}, ${syllabus.準備事項}, ${syllabus.備考}, ${syllabus.特殊プログラム},${syllabus.授業方法} , ${syllabus.講義情報}, ${syllabus.registration_date});`;
+    // }
+    //
     selectByCategory(category: string) {
-        return client.queryArray`SELECT * FROM SyllabusList WHERE カテゴリ = ${category}`;
+        return client.queryArray`SELECT * FROM "SyllabusList" WHERE カテゴリ = ${category}`;
     }
 
-    selectBySyllabusDetailId(id: string) {
-        return client.queryArray`SELECT * FROM SyllabusDetails WHERE id = ${id}`;
+    selectBySyllabusDetailId(detailId: string) {
+        return client.queryArray`SELECT * FROM "SyllabusDetails" WHERE  syllabus_detail_id = 3699`;
     }
 
-    selectByName(name: string) {
-        return client.queryArray`SELECT * FROM SyllabusList WHERE name=${name}`
+    selectByLesson(lesson: string) {
+        return client.queryArray`SELECT * FROM "SyllabusList" WHERE 講義名 = ${lesson}`;
     }
 
     update(id: string, syllabusDetail: syllabusDetail) {

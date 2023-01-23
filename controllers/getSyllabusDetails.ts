@@ -1,24 +1,24 @@
-import {getBeer} from "../services/syllabusService.ts";
+import {getSyllabusDetailById} from "../services/syllabusService.ts";
 import { Context } from "https://deno.land/x/oak/mod.ts";
 
 interface ContextWithParams extends Context {
     params: {
-        id: string;
+        detailId: string;
     };
 }
 export default async ({ params, response }:ContextWithParams) => {
-    const beerId = params.id;
+    const detailId = params.detailId;
 
-    if (!beerId) {
+    if (!detailId) {
         response.status = 400;
-        response.body = {msg: "Invalid beer id "};
+        response.body = {msg: "Invalid Detail id "};
         return;
     }
 
-    const foundBeer = await getBeer(beerId);
+    const foundBeer = await getSyllabusDetailById(detailId);
     if (!foundBeer) {
         response.status = 404;
-        response.body = {msg: `beer with ID ${beerId} not found`};
+        response.body = {msg: `beer with ID ${detailId} not found`};
         return
     }
 

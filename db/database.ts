@@ -8,7 +8,7 @@ class Database {
     async connect() {
         this.client = new Client({
             user: "localuser",
-            database: "Syllabus",
+            database: "SyllabusTest",
             hostname: "localhost",
             password: "password",
             port: 5432
