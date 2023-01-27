@@ -2,7 +2,6 @@ import client from "../db/database.ts";
 
 export type syllabusDetail = {
     syllabus_detail_id: number;
-    科目名: string;
     講義名: string;
     クラス: string;
     担当教員: string;
@@ -44,11 +43,12 @@ export type SyllabusList =  {
 
 class SyllabusRepo {
     selectByCategory(category: string) {
-        return client.queryArray`SELECT * FROM "SyllabusList" WHERE カテゴリ = ${category}`;
+        return client.queryArray`SELECT * FROM "SyllabusList" WHERE 科目区分 = ${category}`;
     }
 
     selectBySyllabusDetailId(detailId: string) {
-        return client.queryArray`SELECT * FROM "SyllabusDetails" WHERE  syllabus_detail_id = 3699`;
+
+        return client.queryArray`SELECT * FROM "SyllabusDetails" WHERE  syllabus_detail_id = ${parseInt(detailId)}`;
     }
 
     selectByLesson(lesson: string) {

@@ -7,7 +7,8 @@ const router = new Router();
 
 router
     .get("/search/lesson/:lesson", getSyllabusList)
-    .get("/syllabus/:detailId", getSyllabusDetail)
     .get("/search/:category/", getSyllabusListByCategory)
+    .get("/syllabus/:detailId", getSyllabusDetail)
+
 
 export default router;

@@ -1,5 +1,6 @@
 import {getSyllabusListByCategory} from "../services/syllabusService.ts";
 import { Context } from "https://deno.land/x/oak/mod.ts";
+import {ListCategoryToSyllabusCategory} from "../db/definition.ts";
 
 interface ContextWithParams extends Context {
     params: {
@@ -7,7 +8,12 @@ interface ContextWithParams extends Context {
     };
 }
 export default async ({ params, response }:ContextWithParams) => {
-    const SyllabusCategory = params.category;
+    const SyllabusCategory = ListCategoryToSyllabusCategory.filter(
+        (d) => d.categoryOfListCategory == params.category
+    )[0].syllabusCategories[0].syllabusCategory;
+
+    console.log(SyllabusCategory)
+
 
     if (!SyllabusCategory) {
         response.status = 400;
