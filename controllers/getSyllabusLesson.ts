@@ -7,7 +7,7 @@ interface ContextWithParams extends Context {
     };
 }
 export default async ({ params, response }:ContextWithParams) => {
-    const SyllabusLesson = params.lesson;
+    const SyllabusLesson: string = params.lesson;
 
     if (!SyllabusLesson) {
         response.status = 400;

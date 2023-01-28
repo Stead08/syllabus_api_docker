@@ -7,8 +7,6 @@ import _404 from "./controllers/404.ts";
 import errorHandler from "./controllers/errorHandler.ts"
 
 const env = Deno.env.toObject();
-const PORT = env.PORT || 4000;
-const HOST = env.HOST || 'localhost'
 
 const app = new Application();
 // corsを有効化

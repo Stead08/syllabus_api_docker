@@ -1,20 +1,18 @@
-import { Client } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
-
+import {Client} from "https://deno.land/x/postgres@v0.17.0/mod.ts";
+import {DB_CONFIG} from "../config.ts";
 
 class Database {
+    client ?: Client
+
     constructor() {
         this.connect();
     }
 
     async connect() {
-        this.client = new Client({
-            user: "localuser",
-            database: "SyllabusTest",
-            hostname: "localhost",
-            password: "password",
-            port: 5432
-        });
-
+        this.client = new Client(DB_CONFIG);
+        if (this.client === undefined) {
+            throw new Error("DB login information is invalid")
+        }
         await this.client.connect();
     }
 }

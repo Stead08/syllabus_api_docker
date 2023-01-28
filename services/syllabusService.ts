@@ -1,16 +1,16 @@
 import syllabusRepo from "../repositories/syllabusRepo.ts";
-import { QueryResult } from "https://deno.land/x/postgres@v0.14.0/query/query.ts";
+import { QueryArrayResult } from "https://deno.land/x/postgres/query/query.ts";
+import {SyllabusList} from "../db/definition.ts";
 
-type GenericObject = { [key: string]: any };
+type GenericObject = {[key: string]: any};
 
-
-const generateObjectFromQueryResult = (queryResult: QueryResult) => {
+const generateObjectFromQueryResult = (queryResult: QueryArrayResult) => {
     const result: GenericObject[] = [];
 
-    queryResult.rows.map((syllabus: string[]) => {
-        let obj: GenericObject = {};
+    queryResult.rows.map((syllabus) => {
+        const obj: GenericObject = {};
 
-        queryResult.rowDescription.columns.map((el, i) => {
+        queryResult.rowDescription?.columns.map((el, i) => {
             obj[el.name] = syllabus[i];
         });
         result.push(obj);
@@ -19,22 +19,20 @@ const generateObjectFromQueryResult = (queryResult: QueryResult) => {
     return result;
 };
 
-export const getBeer = async () => {
-    return null
-}
 
 export const getSyllabusListByCategory = async(category: string) => {
-    const syllabusList: QueryResult = await syllabusRepo.selectByCategory(category);
-    console.log(syllabusList)
+    const syllabusList = await syllabusRepo.selectByCategory(category);
+    if (typeof syllabusList === "object")
     return generateObjectFromQueryResult(syllabusList)
 };
 export const getSyllabusByLesson = async(lesson: string) => {
-    const syllabusList:QueryResult = await syllabusRepo.selectByLesson(lesson);
+    const syllabusList = await syllabusRepo.selectByLesson(lesson);
+    if (typeof syllabusList === "object")
     return generateObjectFromQueryResult(syllabusList)
 
 };
 export const getSyllabusDetailById = async(detailId: string) => {
-    const syllabusDetail: QueryResult = await syllabusRepo.selectBySyllabusDetailId(detailId);
-    console.log(syllabusDetail)
+    const syllabusDetail = await syllabusRepo.selectBySyllabusDetailId(detailId);
+    if (typeof syllabusDetail === "object")
     return generateObjectFromQueryResult(syllabusDetail)
 };
