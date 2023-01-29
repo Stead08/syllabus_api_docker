@@ -1,8 +1,6 @@
 import client from "../db/database.ts";
 
 
-
-
 class SyllabusRepo {
     selectByCategory = (category: string) => {
         if(client)

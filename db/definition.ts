@@ -47,7 +47,7 @@ export interface SyllabusList  {
     科目区分: string;
     単位区分: string;
 
-};
+}
 
 export const ListCategoryToSyllabusCategory: CategoryTranslation[] = [
     {
@@ -61,6 +61,79 @@ export const ListCategoryToSyllabusCategory: CategoryTranslation[] = [
             }
         ]
 
+    },
+    {
+        categoryOfListId: "2",
+        categoryOfListCategory: "卒業研究領域",
+        syllabusCategories: [
+            {
+                syllabusCategoryId: "1",
+                syllabusCategory: '卒業研究領域'
+
+            }
+        ]
+
+    },
+    {
+        categoryOfListId: "3",
+        categoryOfListCategory: "学類専門領域",
+        syllabusCategories: [
+            {
+                syllabusCategoryId: "1",
+                syllabusCategory: '学類専門領域'
+
+            }
+        ]
+
+    },
+    {
+        categoryOfListId: "4",
+        categoryOfListCategory: "学類基礎領域",
+        syllabusCategories: [
+            {
+                syllabusCategoryId: "1",
+                syllabusCategory: '学類基礎領域'
+
+            }
+        ]
+
+    },
+    {
+        categoryOfListId: "5",
+        categoryOfListCategory: "問題探究領域",
+        syllabusCategories: [
+            {
+                syllabusCategoryId: "1",
+                syllabusCategory: '問題探究領域'
+
+            }
+        ]
+
+    },
+    {
+        categoryOfListId: "6",
+        categoryOfListCategory: "教養領域",
+        syllabusCategories: [
+            {
+                syllabusCategoryId: "1",
+                syllabusCategory: '教養領域'
+
+            }
+        ]
+
+    },
+    {
+        categoryOfListId: "7",
+        categoryOfListCategory: "接続領域",
+        syllabusCategories: [
+            {
+                syllabusCategoryId: "1",
+                syllabusCategory: '接続領域'
+
+            }
+        ]
+
     }
+
 ]
 

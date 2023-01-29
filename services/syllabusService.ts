@@ -1,6 +1,5 @@
 import syllabusRepo from "../repositories/syllabusRepo.ts";
 import { QueryArrayResult } from "https://deno.land/x/postgres/query/query.ts";
-import {SyllabusList} from "../db/definition.ts";
 
 type GenericObject = {[key: string]: any};
 
