@@ -1,6 +1,7 @@
 import {Client} from "https://deno.land/x/postgres@v0.17.0/mod.ts";
 //import {DB_CONFIG} from "../config.ts";
 
+const DB_CONFIG = Deno.env.get("DB_CONFIG")
 class Database {
     client ?: Client
 

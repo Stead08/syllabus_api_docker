@@ -6,7 +6,8 @@ import { oakCors } from 'https://deno.land/x/cors/mod.ts'
 import _404 from "./controllers/404.ts";
 import errorHandler from "./controllers/errorHandler.ts"
 
-const env = Deno.env.toObject();
+const APP_HOST = Deno.env.get("APP_HOST");
+const APP_PORT = Deno.env.get("APP_PORT");
 
 const app = new Application();
 // corsを有効化
