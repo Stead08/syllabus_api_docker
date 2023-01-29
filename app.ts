@@ -1,5 +1,5 @@
 import {Application} from "https://deno.land/x/oak/mod.ts";
-import { APP_HOST, APP_PORT } from "./config.ts";
+//import { APP_HOST, APP_PORT } from "./config.ts";
 import router from "./routes.ts"
 //CORS対策用なのでローカル実行時のみimport
 import { oakCors } from 'https://deno.land/x/cors/mod.ts'
